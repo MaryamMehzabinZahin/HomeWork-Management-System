@@ -44,35 +44,32 @@
         </style> -->
     </head>
     <body>
-    <div>
+    
+    <div id="customers">
        <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0"> -->
-        <table id="customers">
-              <tr>
-                  <td>Serial No:</td>
-                  <td>Subject</td>
-                  <td>Homework Details</td>
-                  <td>Created At</td>
-                  <td>Updated At</td>
-                  <td>Action</td>
-            </tr>
-            @foreach($hws as $hk)
+       <form method="post" action="../homework_update/{{$hws->id}} ">
+       @csrf
+       <table >
             <tr>
-                  <td>{{$hk->id}}</td>
-                  <td>{{$hk->name}}</td>
-                  <td>{{$hk->details}}</td>
-                  <td>{{$hk->created_at}}</td>
-                  <td>{{$hk->updated_at}}</td>
-                  <td><a style="color:pink" href="homework_delete/{{$hk->id}}"> Delete </a></td>
-                 <td><a style="color:green" href="homework_edit/{{$hk->id}}">Edit Homework</a><br/><br/>
-            </tr>
-            <tr>
-               
+                <td>Subject</td>
+                <td><input type="textname" name="name" required value="{{$hws->name}}"/></td>
+          
            </tr>
-            @endforeach
+           <tr>
+                <td>Details</td>
+                <td><input type="textarea" name="details" required value="{{$hws->details}}"/></td>
+          
+           </tr>
+           <tr>
+                <td></td>
+                <td><input type="Submit" name="submit"/></td>
+          
+           </tr>
+           
         </table>
-     
-         <a style="color:pink" href="homework_create">Add Homework</a><br/><br/>
-        
+        </form>
+        {{session('msg')}}
+         <a style="color:pink" href="homework_show">Go Back</a><br/><br/>
         </div>
     </body>
 </html>
