@@ -69,9 +69,11 @@ class HomeworksController extends Controller
      * @param  \App\Models\Homeworks  $homeworks
      * @return \Illuminate\Http\Response
      */
-    public function edit(Homeworks $homeworks)
+    public function edit(Homeworks $homeworks,$id)
     {
         //
+        $hws=Homeworks::find($id);
+        return view("homework_edit",compact('hws'));
     }
 
     /**
@@ -84,6 +86,14 @@ class HomeworksController extends Controller
     public function update(Request $request, Homeworks $homeworks)
     {
         //
+        $res=Homeworks::find($request->id);
+        $res->name=$request->input('name');
+
+        $res->details=$request->input('details');
+        $res->save();
+        
+        $request->session()->flash('msg','updated');
+        return redirect('homework_show');
     }
 
     /**
