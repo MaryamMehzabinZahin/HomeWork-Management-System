@@ -29,11 +29,17 @@
                   <td>Subject</td>
                   <td>Homework Details</td>
                   <td>Created At</td>
+                  <td>Updated At</td>
                   <td>Action</td>
             </tr>
             @foreach($hws as $hk)
             <tr>
-                  <?php echo "po"?>
+                  <td>{{$hk->id}}</td>
+                  <td>{{$hk->name}}</td>
+                  <td>{{$hk->details}}</td>
+                  <td>{{$hk->created_at}}</td>
+                     <td>{{$hk->updated_at}}</td>
+                  <td>Action</td>
                  
             </tr>
             @endforeach
