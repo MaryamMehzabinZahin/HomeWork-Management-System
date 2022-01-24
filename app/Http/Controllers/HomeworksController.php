@@ -25,6 +25,8 @@ class HomeworksController extends Controller
     public function create()
     {
         //
+        $hws=Homeworks::all();
+        return view("homework_create",compact('hws'));
     }
 
     /**
@@ -36,6 +38,14 @@ class HomeworksController extends Controller
     public function store(Request $request)
     {
         //
+        $res=new Homeworks;
+        $res->name=$request->input('name');
+
+        $res->details=$request->input('details');
+        $res->save();
+        
+        $request->session()->flash('msg','inserted');
+        return redirect('homework_show');
     }
 
     /**
