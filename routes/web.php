@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('homework_show','App\Http\Controllers\HomeworksController@show');
+Route::get('homework_delete/{id}','App\Http\Controllers\HomeworksController@destroy');
