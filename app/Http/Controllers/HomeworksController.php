@@ -46,7 +46,11 @@ class HomeworksController extends Controller
      */
     public function show(Homeworks $homeworks)
     {
-        //
+        // 
+        $hws=Homeworks::all();
+        return view("homework_show",compact('hws'));
+       // return view('homework_show')->with('hwArr',$hws);
+       
     }
 
     /**
