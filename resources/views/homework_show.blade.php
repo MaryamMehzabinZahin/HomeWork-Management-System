@@ -38,8 +38,8 @@
                   <td>{{$hk->name}}</td>
                   <td>{{$hk->details}}</td>
                   <td>{{$hk->created_at}}</td>
-                     <td>{{$hk->updated_at}}</td>
-                  <td>Action</td>
+                  <td>{{$hk->updated_at}}</td>
+                  <td><a style="color:blue" href="homework_delete/{{$hk->id}}"/> Delete </td>
                  
             </tr>
             @endforeach
