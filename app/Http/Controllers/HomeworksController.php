@@ -82,8 +82,11 @@ class HomeworksController extends Controller
      * @param  \App\Models\Homeworks  $homeworks
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Homeworks $homeworks)
+    public function destroy(Homeworks $homeworks,$id)
     {
         //
+        Homeworks::destroy(array('id',$id));
+        return redirect('homework_show');
+
     }
 }
